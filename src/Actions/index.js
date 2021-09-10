@@ -1,13 +1,20 @@
-export const CRAETE_BOOK = 'CREATE_BOOK';
+const CRAETE_BOOK = 'CREATE_BOOK';
+const REMOVE_BOOK = 'REMOVE_BOOK';
+const CHANGE_FILTER = 'CHANGE_FILTER'
 
-export const REMOVE_BOOK = 'REMOVE_BOOK';
-
-export const createBook = (book) => ({
+const createBook = (book) => ({
   type: CRAETE_BOOK,
-  bookUpload: book,
+  book,
 });
 
-export const removeBook = (book) => ({
+const removeBook = (id) => ({
   type: REMOVE_BOOK,
-  bookRemove: book,
+  id,
 });
+
+const changeFilter = id => ({
+  type: CHANGE_FILTER,
+  id,
+});
+
+export { createBook, removeBook, changeFilter };
