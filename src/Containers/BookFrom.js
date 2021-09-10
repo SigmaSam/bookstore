@@ -11,6 +11,7 @@ const categories = [
   'Learning',
   'Sci-Fi',
 ];
+
 const BookForm = () => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
@@ -37,19 +38,16 @@ const BookForm = () => {
 
   return (
     <form onSubmit={submitHandler}>
-      <label htmlFor="title">
-        Tittle
-        <input type="text" id="title" onChange={titleHandler} value={title.value} />
-      </label>
-      <label htmlFor="categories">
-        Catergory
-        <select name="categories" onChange={categoryHandler} id="categories" value={category.value}>
-          {categories.map((category) => (
-            <option key={category} value={category}>{category}</option>
-          ))}
-        </select>
-      </label>
-      <button type="button" value="Submit">Submit</button>
+      <input type="text" placeholder="Title" onChange={titleHandler} value={title} />
+      <select name="categories" onChange={categoryHandler} id="categories" value={category}>
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {' '}
+            {category}
+          </option>
+        ))}
+      </select>
+      <button type="submit">Submit</button>
     </form>
   );
 };

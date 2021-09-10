@@ -2,12 +2,14 @@ export const CRAETE_BOOK = 'CREATE_BOOK';
 
 export const REMOVE_BOOK = 'REMOVE_BOOK';
 
-export const createBook = (book) => ({
+const createBook = (book) => ({
   type: CRAETE_BOOK,
-  bookUpload: book,
+  book,
 });
 
-export const removeBook = (book) => ({
+const removeBook = (id) => ({
   type: REMOVE_BOOK,
-  bookRemove: book,
+  id,
 });
+
+export { createBook, removeBook };
