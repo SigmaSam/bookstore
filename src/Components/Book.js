@@ -1,24 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Book = ({ book }) => {
-  const { id, title, category } = book;
+const Book = (props) => {
+  const { book, remove } = props;
 
   return (
-    <tr>
-      <td>{id}</td>
-      <td>{title}</td>
-      <td>{category}</td>
+    <tr key={book.id}>
+      <td>{book.id}</td>
+      <td>{book.title}</td>
+      <td>{book.category}</td>
+      <button type="button" onClick={remove} value={book.id}>Remove </button>
     </tr>
   );
 };
 
 Book.propTypes = {
-  book: PropTypes.shape({
-    title: PropTypes.string,
-    category: PropTypes.string,
-    id: PropTypes.number,
-  }).isRequired,
+  book: PropTypes.exact({
+    title: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+  }),
+  remove: PropTypes.func.isRequired,
+};
+
+Book.defaultProps = {
+  book: '',
 };
 
 export default Book;
