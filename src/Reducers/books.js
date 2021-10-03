@@ -1,19 +1,25 @@
-const CREATE_BOOK = 'CREATE_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
+import { CREATE_BOOK, REMOVE_BOOK } from '../Actions/index';
 
-const initialState = {
-  books: [
-    { id: 1, title: 'Tio Tigre y Tio Conejo', category: 'Kids' },
-    { id: 1, title: 'Thus Spoke Zaratustra', category: 'Horror' },
-  ],
+const initialState = [
+  { id: 1, title: 'Tio Tigre y Tio Conejo', category: 'Kids' },
+  { id: 2, title: 'Thus Spoke Zaratustra', category: 'Horror' },
+];
+
+const remove = (book, state) => {
+  const index = state.findIndex((findBook) => findBook.id === book.id);
+  const newState = [...state];
+  newState.splice(index, 1);
+  return newState;
 };
 
 const booksReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { book, type } = action;
+
+  switch (type) {
     case CREATE_BOOK:
-      return [...state, action.book];
+      return [...state, book];
     case REMOVE_BOOK:
-      return [...state].filter((book) => book.id !== action.id);
+      return [...remove(book, state)];
     default:
       return state;
   }

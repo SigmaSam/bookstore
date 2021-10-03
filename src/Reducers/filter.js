@@ -1,9 +1,11 @@
-const CHANGE_FILTER = 'CHANGE_FILTER';
+import { CHANGE_FILTER } from '../Actions/index';
 
 const filterReducer = (state = 'All', action) => {
-  switch (action.type) {
+  const { filter, type } = action;
+
+  switch (type) {
     case CHANGE_FILTER:
-      return [...state, action.book];
+      return filter;
     default:
       return state;
   }

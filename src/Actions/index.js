@@ -1,20 +1,9 @@
-const CREATE_BOOK = 'CREATE_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
-const CHANGE_FILTER = 'CHANGE_FILTER';
+export const CREATE_BOOK = 'CREATE_BOOK';
+export const REMOVE_BOOK = 'REMOVE_BOOK';
+export const CHANGE_FILTER = 'CHANGE_FILTER';
 
-const createBook = (book) => ({
-  type: CREATE_BOOK,
-  book,
-});
+export const createBook = (book) => ({ type: CREATE_BOOK, book });
 
-const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
+export const removeBook = (book) => ({ type: REMOVE_BOOK, book });
 
-const changeFilter = (id) => ({
-  type: CHANGE_FILTER,
-  id,
-});
-
-export { createBook, removeBook, changeFilter };
+export const changeFilter = (filter) => ({ type: CHANGE_FILTER, filter });
