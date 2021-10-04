@@ -31,9 +31,6 @@ function BooksList({
         </button>
         <span>Category: </span>
         <CategoryFilter handleFilterChange={handleFilterChange} />
-        <div className="profile">
-          <h1>Gato</h1>
-        </div>
       </header>
       <div className="booklist">
         {checkFilter(filter, books).map((book) => (
